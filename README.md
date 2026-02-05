@@ -1,5 +1,5 @@
 # CVE-2025-64459 - Django SQL Injection Risk
-#### Video: URL GOES HERE
+#### YouTube link: https://youtu.be/ztAWe7ELOdM
 
 ## Introduction:
 
@@ -81,7 +81,7 @@ Does the attacker need to be in physical contact with the server, on the same lo
 In our case, it's remotely exploitable, the most dangerous.
 
 The Attack Complexity:
-Basically, how hard is it. Is it like Mission Impossible where they need to attack at a specific location in a specific way within a specific time window. Or can you expect repeatable success without any major prep work.
+Basically, how hard is it. Is it like Mission Impossible where the attack requires a lot of prep and a very specific set of circumstances difficult to replicate. Or can you expect repeatable success without any major prep work.
 In this case, it was low complexity. You just send a malicious HTTP request.
 
 The Privileges Required:
@@ -117,7 +117,7 @@ Due to the ease at which an attacker can exploit the vulnerability, and the harm
 
 As is standard, the Django team only publicly disclosed this vulnerability once they'd released updates to the affected versions.
 
-So the first, most-important step is to immediately update if you're using one of the affected versions. They add a couple of layers of protection: 
+So the first, most-important step is to immediately update if you're using an outdated version. They add a couple of layers of protection: 
 QuerySet validation let us disallow certain filters, like _connector or _negated, and 
 Q Object validation lets us set a list of allowable connectors directly.
 
@@ -127,9 +127,7 @@ Use Django Forms to validate all user input.
 Implement parameter whitelisting for filter endpoints.
 Use explicit field mapping rather than dictionary expansion.
 
-
-## Avoiding SQL injection attacks more generally
-{ no time for this }
+Basically, don't trust that the data received will be the data you expect. It's good to be a bit skeptical.
 
 
 ## Closing
@@ -142,6 +140,6 @@ Thank you again. This was CS50 Cybersecurity.
 
 
 ## Sources:
-CVE Records Database: https://www.cve.org/CVERecord?id=CVE-2025-64459
-National Vulnerability Database: https://nvd.nist.gov/vuln/detail/CVE-2025-64459
-EndorLabs: https://www.endorlabs.com/learn/critical-sql-injection-vulnerability-in-django-cve-2025-64459
+CVE Records Database: https://www.cve.org/CVERecord?id=CVE-2025-64459  
+National Vulnerability Database: https://nvd.nist.gov/vuln/detail/CVE-2025-64459  
+EndorLabs: https://www.endorlabs.com/learn/critical-sql-injection-vulnerability-in-django-cve-2025-64459  
